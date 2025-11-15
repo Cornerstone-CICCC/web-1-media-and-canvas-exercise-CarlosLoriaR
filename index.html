@@ -1,23 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media Exercise</title>
+
+  <style>
+    body {
+      background-image: url(./assets/images/background.jpg);
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      background-color: green;
+    }
+  </style>
 </head>
+
 <body>
   <div class="container">
     <!-- AUDIO HTML GOES HERE -->
-
+    <audio controls muted loop>
+      <source src="./assets/audio/piano.wav">
+    </audio>
     <!-- VIDEO HTML GOES HERE -->
-
+    <video controls muted poster="./assets/images/poster.jpg">
+      <source src="./assets/video/ocean.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <!-- IMAGE MAP HTML GOES HERE-->
-
+    <img src="./assets/images/fruit_table.jpg" alt="Fruit Table" usemap="#img-map" width="600">
+    <map name="img-map">
+      <area shape="rect" coords="0,0,300,600" href="https://en.wikipedia.org/wiki/Lavandula" alt="Lavender"
+        title="Lavender">
+      <area shape="rect" coords="400,250,600,700" href="https://en.wikipedia.org/wiki/Orange_(fruit)" alt="Orange"
+        title="Orange">
+      <area shape="circle" coords="450,200,90" href="https://en.wikipedia.org/wiki/Coffee" alt="Coffee" title="Coffee">
+    </map>
     <!-- CANVAS HTML GOES HERE -->
+    <canvas id="myCanvas" width="500" height="500" style="background-color: lightgray;"></canvas>
   </div>
 
   <script>
     /* CANVAS JAVASCRIPT GOES HERE */
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = 'lightgray';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+    ctx.moveTo(100, 100);
+    ctx.lineTo(400, 100);
+    ctx.strokeStyle = 'red';
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(400, 100);
+    ctx.lineTo(400, 400);
+    ctx.strokeStyle = 'blue';
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(400, 400);
+    ctx.lineTo(100, 400);
+    ctx.strokeStyle = 'green';
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    ctx.closePath();
+
+    ctx.beginPath();
+    ctx.moveTo(100, 400);
+    ctx.lineTo(100, 100);
+    ctx.strokeStyle = 'yellow';
+    ctx.lineWidth = 5;
+    ctx.stroke();
+    ctx.closePath();
   </script>
 </body>
+
 </html>
